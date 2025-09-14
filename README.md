@@ -84,12 +84,6 @@ Key libraries used in this project:
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
 ## Acknowledgments
 
 - Inspiration and techniques adapted from open-source emotion recognition projects.
