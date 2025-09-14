@@ -13,14 +13,6 @@ A real-time facial emotion recognition web application built with Python, Flask,
 - **Preprocessing** on grayscale face images with CLAHE for improved model accuracy.
 
 ---
-
-## Demo
-
-![Demo Screenshot](screenshot.png)  
-*Replace with your application screenshot*
-
----
-
 ## Getting Started
 
 ### Prerequisites
