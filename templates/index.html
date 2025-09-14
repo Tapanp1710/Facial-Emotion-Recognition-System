@@ -2,9 +2,80 @@
 <html>
 <head>
     <title>Facial Emotion Recognition</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #eee;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-weight: normal;
+            font-size: 2.4em;
+            color: #4caf50;
+            text-shadow: 0 0 10px #4caf50;
+        }
+        img {
+            border: 5px solid #4caf50;
+            border-radius: 12px;
+            box-shadow: 0 0 25px #4caf50aa;
+            max-width: 90vw;
+            height: auto;
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4caf50;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            margin-top: auto;
+            font-size: 0.9em;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
     <h2>Live Emotion Detection</h2>
-    <img src="{{ url_for('video_feed') }}" width="640" height="480"/>
+    <button id="startButton">Start Capture</button>
+    <img id="videoFeed" alt="Live Emotion Video Feed" width="640" height="480"/>
+    <footer>Powered by Flask & TensorFlow</footer>
+
+    <script>
+        const startBtn = document.getElementById('startButton');
+        const videoFeed = document.getElementById('videoFeed');
+        let streaming = false;
+
+        startBtn.addEventListener('click', () => {
+            if (!streaming) {
+                videoFeed.src = "{{ url_for('video_feed') }}";
+                videoFeed.style.display = 'block';
+                startBtn.textContent = "Stop Capture";
+                streaming = true;
+            } else {
+                videoFeed.src = '';
+                videoFeed.style.display = 'none';
+                startBtn.textContent = "Start Capture";
+                streaming = false;
+            }
+        });
+    </script>
 </body>
 </html>
